@@ -1,0 +1,8 @@
+# SS Indo Solar
+> Solar EPC company and wholesale distributor at MIG 86, K.D.A. Colony, Jajmau, Kanpur 208010. UPNEDA-empanelled PM Surya Ghar vendor (10-06-2025). Phone +91 7906786485, +91 9451875234.
+
+- /services: rooftop on-grid, off-grid, solar thermal, solar pumps, C&I, O&M
+- /projects: Darul Uloom Deoband 300 kW, Vidyagyan School Sitapur 300 kW, AKI Magarwara Unnao 50 kW, DTS Madarsa Jajmau 25 kW, Chennai off-grid, Fatehpur 5 HP pump
+- /installation: civil foundation, structure mounting, DC/AC cabling, earthing, lightning arrestor
+- /products: panels, inverters, batteries, Waaree water heaters, street lights
+- /faq, /about, /contact
