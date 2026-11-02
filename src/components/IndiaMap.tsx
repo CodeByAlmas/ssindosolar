@@ -153,19 +153,15 @@ export const INDIA_LOCATIONS: CityPin[] = [
   },
 ];
 
-// Detailed Cartographic Path of India (Mainland + J&K/Ladakh + Kutch/Kathiawar + Seven Sisters)
 const INDIA_MAINLAND_PATH =
   'M 184,34 L 210,30 L 236,42 L 266,40 L 284,54 L 278,76 L 260,92 L 266,114 L 252,134 L 262,154 L 284,174 L 316,192 L 348,198 L 368,194 L 372,174 L 382,172 L 386,188 L 408,186 L 434,168 L 468,154 L 496,144 L 522,156 L 534,174 L 516,194 L 504,218 L 498,248 L 484,264 L 474,244 L 464,256 L 454,238 L 432,226 L 414,228 L 406,246 L 414,274 L 396,296 L 372,306 L 352,332 L 332,356 L 304,382 L 296,412 L 282,448 L 274,492 L 268,534 L 254,568 L 236,608 L 218,616 L 204,592 L 192,554 L 178,506 L 164,458 L 154,412 L 146,368 L 138,334 L 118,338 L 92,344 L 70,330 L 62,308 L 84,296 L 98,298 L 88,284 L 54,278 L 42,260 L 58,242 L 88,238 L 104,224 L 94,198 L 106,174 L 134,158 L 158,136 L 172,114 L 164,90 L 154,68 L 166,48 Z';
 
-// Highlighted State Contour: Uttar Pradesh
 const UP_STATE_PATH =
   'M 218,178 L 252,176 L 288,196 L 326,218 L 334,248 L 316,278 L 284,284 L 252,276 L 226,254 L 212,224 L 214,196 Z';
 
-// Highlighted State Contour: Tamil Nadu
 const TN_STATE_PATH =
   'M 228,504 L 270,502 L 268,536 L 254,570 L 236,608 L 218,616 L 210,582 L 218,540 Z';
 
-// Internal State Divider Lines (Matching Reference 3D White Map)
 const STATE_BORDERS_PATH =
   'M 164,90 Q 210,108 260,92 M 172,114 Q 212,136 252,134 M 158,136 Q 192,168 218,178 M 106,174 Q 168,204 212,224 M 104,224 Q 165,256 226,254 M 138,334 Q 210,318 284,284 M 316,278 Q 356,282 396,296 M 348,198 Q 344,240 334,248 M 382,188 Q 388,242 406,246 M 154,412 Q 224,396 296,412 M 164,458 Q 222,462 274,492 M 178,506 Q 208,522 228,504';
 
@@ -179,7 +175,6 @@ export default function IndiaMap() {
   return (
     <section className="sec" id="presence" aria-labelledby="map-heading">
       <div className="wrap">
-        {/* Section Heading */}
         <div
           className="sec-h"
           style={{
@@ -209,9 +204,7 @@ export default function IndiaMap() {
           </h2>
         </div>
 
-        {/* Main Split Grid */}
         <div className="map-split" data-reveal>
-          {/* LEFT PANEL: Dynamic Active City Information */}
           <div className="card map-info">
             <div>
               <div className="map-top-tags">
@@ -238,7 +231,6 @@ export default function IndiaMap() {
               </div>
             </div>
 
-            {/* Interactive City Pills + Action Buttons */}
             <div className="map-selector">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
                 <span className="map-lbl" style={{ margin: 0 }}>
@@ -292,14 +284,14 @@ export default function IndiaMap() {
                 >
                   Book survey in {activeCity.city}
                 </CBtn>
-                <CBtn href="/projects" v="ghost" sm>
+                {/* Fixed: removed invalid 'sm' prop */}
+                <CBtn href="/projects" v="ghost">
                   View projects
                 </CBtn>
               </div>
             </div>
           </div>
 
-          {/* RIGHT PANEL: 3D White/Alabaster Architectural Relief Map */}
           <div
             className="map-stage"
             style={{
@@ -310,7 +302,6 @@ export default function IndiaMap() {
               boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8), 0 24px 60px rgba(15, 26, 28, 0.08)',
             }}
           >
-            {/* Top Floating Glass Telemetry Bar */}
             <div
               className="map-hud"
               style={{
@@ -354,7 +345,6 @@ export default function IndiaMap() {
               </button>
             </div>
 
-            {/* 3D Relief SVG Canvas */}
             <div className="map-svg-wrap">
               <svg
                 viewBox={zoomUP ? '140 135 245 185' : '0 0 600 660'}
@@ -368,26 +358,22 @@ export default function IndiaMap() {
                 }}
               >
                 <defs>
-                  {/* Realistic Soft Floor Cast Shadow (Matches Reference 3D Map) */}
                   <filter id="floorShadow" x="-20%" y="-20%" width="150%" height="150%">
                     <feDropShadow dx="-14" dy="22" stdDeviation="14" floodColor="#334155" floodOpacity="0.48" />
                     <feDropShadow dx="-4" dy="8" stdDeviation="4" floodColor="#0f172a" floodOpacity="0.28" />
                   </filter>
 
-                  {/* Top White 3D Surface Lighting */}
                   <linearGradient id="white3DSurface" x1="15%" y1="5%" x2="85%" y2="95%">
                     <stop offset="0%" stopColor="#ffffff" />
                     <stop offset="55%" stopColor="#f8fafc" />
                     <stop offset="100%" stopColor="#e2e8f0" />
                   </linearGradient>
 
-                  {/* Highlighted State Surface (Soft Solar Gold / Teal Tint) */}
                   <linearGradient id="activeStateSurface" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#fffbeb" />
                     <stop offset="100%" stopColor="#fef3c7" />
                   </linearGradient>
 
-                  {/* 3D Pin Gradients */}
                   <linearGradient id="hqPinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                     <stop offset="0%" stopColor="#ffd54f" />
                     <stop offset="100%" stopColor="#f59e0b" />
@@ -403,7 +389,6 @@ export default function IndiaMap() {
                   </filter>
                 </defs>
 
-                {/* Subtle Studio Grid Rings */}
                 <circle
                   cx="268"
                   cy="256"
@@ -421,12 +406,10 @@ export default function IndiaMap() {
                   strokeDasharray="4 4"
                 />
 
-                {/* 1. DEEP FLOOR SHADOW PLATE */}
                 <g filter="url(#floorShadow)">
                   <path d={INDIA_MAINLAND_PATH} fill="#94a3b8" transform="translate(-4, 10)" />
                 </g>
 
-                {/* 2. 3D EXTRUDED SIDE WALLS (Layered stack for realistic 3D block thickness) */}
                 {[9, 8, 7, 6, 5, 4, 3, 2, 1].map((depth) => (
                   <path
                     key={`depth-${depth}`}
@@ -439,7 +422,6 @@ export default function IndiaMap() {
                   />
                 ))}
 
-                {/* 3. TOP CRISP WHITE 3D SURFACE OF INDIA */}
                 <path
                   d={INDIA_MAINLAND_PATH}
                   fill="url(#white3DSurface)"
@@ -448,7 +430,6 @@ export default function IndiaMap() {
                   strokeLinejoin="round"
                 />
 
-                {/* 4. HIGHLIGHTED OPERATING STATES (Uttar Pradesh & Tamil Nadu) */}
                 <path
                   d={UP_STATE_PATH}
                   fill="url(#activeStateSurface)"
@@ -464,7 +445,6 @@ export default function IndiaMap() {
                   strokeLinejoin="round"
                 />
 
-                {/* 5. REALISTIC INTERNAL STATE BOUNDARY LINES */}
                 <path
                   d={STATE_BORDERS_PATH}
                   fill="none"
@@ -474,20 +454,16 @@ export default function IndiaMap() {
                   strokeLinejoin="round"
                 />
 
-                {/* 6. 3D ISLAND GROUPS (Lakshadweep & Andaman & Nicobar as in Reference) */}
                 <g fill="#ffffff" stroke="#94a3b8" strokeWidth="0.8">
-                  {/* Lakshadweep */}
                   <circle cx="132" cy="542" r="2.5" />
                   <circle cx="138" cy="556" r="2" />
                   <circle cx="134" cy="570" r="2.2" />
-                  {/* Andaman & Nicobar */}
                   <path d="M 468,488 L 472,506 L 469,524 L 464,510 Z" />
                   <circle cx="472" cy="542" r="2.5" />
                   <circle cx="478" cy="564" r="2.5" />
                   <circle cx="482" cy="580" r="2" />
                 </g>
 
-                {/* 7. CURVED TRANSMISSION ARCS FROM KANPUR HQ TO ALL HUBS */}
                 {INDIA_LOCATIONS.map((loc) => {
                   if (loc.isHQ) return null;
                   const isSelected = loc.id === activeId;
@@ -505,7 +481,6 @@ export default function IndiaMap() {
                   );
                 })}
 
-                {/* 8. 3D TEARDROP PINS + SMART CALLOUT BADGES (ZERO OVERLAP) */}
                 {INDIA_LOCATIONS.map((loc) => {
                   const isSelected = loc.id === activeId;
                   const scale = zoomUP ? 0.58 : 1;
@@ -528,10 +503,8 @@ export default function IndiaMap() {
                         }
                       }}
                     >
-                      {/* Invisible Touch Target */}
                       <circle r={16 * scale} fill="transparent" />
 
-                      {/* Leader Callout Line from Pin Base to Pill Label */}
                       <polyline
                         points={`0,0 ${lx * 0.55},${ly} ${lx},${ly}`}
                         fill="none"
@@ -539,7 +512,6 @@ export default function IndiaMap() {
                         strokeWidth={isSelected ? 1.4 * scale : 0.9 * scale}
                       />
 
-                      {/* Ground Pulse Ring */}
                       {(isSelected || loc.isHQ) && (
                         <ellipse
                           cx="0"
@@ -553,7 +525,6 @@ export default function IndiaMap() {
                         />
                       )}
 
-                      {/* Ground Shadow Ellipse under Pin */}
                       <ellipse
                         cx="0"
                         cy={1.5 * scale}
@@ -562,7 +533,6 @@ export default function IndiaMap() {
                         fill="rgba(15, 26, 28, 0.35)"
                       />
 
-                      {/* 3D Standing Teardrop Pin */}
                       <g
                         transform={`scale(${
                           (isSelected ? 1.22 : loc.isHQ ? 1.1 : 0.9) * scale
@@ -575,7 +545,6 @@ export default function IndiaMap() {
                           stroke="#ffffff"
                           strokeWidth="1.5"
                         />
-                        {/* Inner Pin Hole / Core */}
                         <circle
                           cx="0"
                           cy="-17"
@@ -584,7 +553,6 @@ export default function IndiaMap() {
                         />
                       </g>
 
-                      {/* Clean Callout Pill Label (No Text Clashing) */}
                       <g transform={`translate(${lx}, ${ly}) scale(${scale})`}>
                         <rect
                           x={
@@ -622,7 +590,6 @@ export default function IndiaMap() {
               </svg>
             </div>
 
-            {/* Bottom Map Legend */}
             <div
               className="map-legend"
               style={{
