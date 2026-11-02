@@ -4,6 +4,7 @@ import CBtn from '@/components/CBtn';
 import Media from '@/components/Media';
 import TLink from '@/components/TLink';
 import QuoteForm from '@/components/QuoteForm';
+import IndiaMap from '@/components/IndiaMap';
 import { wa } from '@/components/Chrome';
 import { Check, Sun, Home as HomeIc, Bolt, Shield, Building, Drop, Pump } from '@/components/Icons';
 import { PROJECTS, FAQS, BRANDS, SITE } from '@/lib/data';
@@ -46,6 +47,16 @@ const localSchema = {
     latitude: 26.4312,
     longitude: 80.4072,
   },
+  areaServed: [
+    { '@type': 'City', name: 'Kanpur' },
+    { '@type': 'City', name: 'Aligarh' },
+    { '@type': 'City', name: 'Sitapur' },
+    { '@type': 'City', name: 'Deoband' },
+    { '@type': 'City', name: 'Unnao' },
+    { '@type': 'City', name: 'Fatehpur' },
+    { '@type': 'AdministrativeArea', name: 'Delhi NCR' },
+    { '@type': 'City', name: 'Chennai' },
+  ],
   hasCredential: {
     '@type': 'EducationalOccupationalCredential',
     name: 'UPNEDA Empanelled Vendor (PM Surya Ghar)',
@@ -69,7 +80,7 @@ export default function Home() {
 
       <Hero />
 
-      {/* Why SS Indo Solar Section: Single-line heading with smooth scroll reveal */}
+      {/* Why SS Indo Solar Section: Cleaned Cards with Rich Visual Photos & Floating Chips */}
       <section className="sec">
         <div className="wrap">
           <div
@@ -101,14 +112,15 @@ export default function Home() {
           </div>
 
           <div className="g3 w1" data-stagger>
-            {/* Card 1: Visual Card */}
+            {/* Card 1: Made for Indian rooftops */}
             <div className="pc">
               <Image
                 src={IMG.worker}
-                alt="Technician fixing a solar module"
+                alt="Technician fixing a solar module on Indian rooftop"
                 fill
                 priority
                 sizes="(max-width:900px) 100vw, 40vw"
+                style={{ objectFit: 'cover' }}
               />
               <div className="chip glass" style={{ top: 18, left: 18 }}>
                 <b>500+</b>
@@ -127,25 +139,55 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Card 2: UPNEDA Empanelled */}
-            <div className="card tall">
-              <span className="icn">
-                <Shield />
-              </span>
+            {/* Card 2: UPNEDA Empanelled (With Real Solar Array Image & Empanelment Badge) */}
+            <div className="pc">
+              <Image
+                src={IMG.school}
+                alt="UPNEDA empanelled institutional solar rooftop installation"
+                fill
+                sizes="(max-width:900px) 100vw, 30vw"
+                style={{ objectFit: 'cover' }}
+              />
+              <div className="chip glass" style={{ top: 18, left: 18 }}>
+                <b>UPNEDA</b>
+                <small>
+                  Vendor Code
+                  <br />
+                  CNB2506102720
+                </small>
+              </div>
               <div>
+                <span className="icn">
+                  <Shield />
+                </span>
                 <h3>UPNEDA empanelled</h3>
-                <p>Approved vendor for residential rooftop solar under PM Surya Ghar in Uttar Pradesh, approved on 10-06-2025[cite: 2].</p>
+                <p>Approved vendor for residential rooftop solar under PM Surya Ghar in Uttar Pradesh, approved on 10-06-2025.</p>
               </div>
             </div>
 
-            {/* Card 3: One Contract, One Bill */}
-            <div className="card tall">
-              <span className="icn">
-                <Bolt />
-              </span>
+            {/* Card 3: One Contract, One Bill (With Grid Solar Inverter Image & Turnkey Badge) */}
+            <div className="pc">
+              <Image
+                src={IMG.carportWide}
+                alt="Turnkey solar engineering and net-metering setup"
+                fill
+                sizes="(max-width:900px) 100vw, 30vw"
+                style={{ objectFit: 'cover' }}
+              />
+              <div className="chip glass" style={{ top: 18, left: 18 }}>
+                <b>Turnkey</b>
+                <small>
+                  Single point
+                  <br />
+                  EPC contract
+                </small>
+              </div>
               <div>
+                <span className="icn">
+                  <Bolt />
+                </span>
                 <h3>One contract, one bill</h3>
-                <p>Survey, equipment, installation, net-metering paperwork and maintenance, all from us[cite: 6, 9, 11].</p>
+                <p>Survey, equipment, installation, net-metering paperwork and maintenance, all from us.</p>
               </div>
             </div>
           </div>
@@ -184,6 +226,9 @@ export default function Home() {
           <TLink key={p.slug} href={`/projects/${p.slug}`} className="pj"><div className="media"><Image src={p.img} alt={p.title} fill sizes="(max-width:900px) 100vw, 33vw" /><span className="tag sun">{p.capacity}</span></div>
             <div className="meta"><div><h3>{p.title}</h3><p>{p.kind}, {p.place}</p></div></div></TLink>))}</div>
       </div></section>
+
+      {/* NEW: Interactive Pan-India Presence & Map Section */}
+      <IndiaMap />
 
       <section className="sec tight"><div className="wrap"><div className="stats" data-reveal>
         <div><b><span data-count="500">0</span><em>+</em></b><span>solar systems commissioned</span></div>

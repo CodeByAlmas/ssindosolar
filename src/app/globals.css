@@ -256,3 +256,373 @@ h1,h2,h3,h4{font-family:var(--fh);font-weight:700;letter-spacing:-.03em;line-hei
     font-size: clamp(32px, 8.5vw, 42px) !important;
   }
 }
+
+/* =========================================================
+   WHY SS INDO SOLAR - 3 VISUAL CARDS & CHIP ADJUSTMENT
+   ========================================================= */
+
+/* Ensure clean floating chip (No whole-card blur) */
+.pc .chip.glass {
+  position: absolute !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: fit-content !important;
+  inset: auto !important;
+  top: 18px !important;
+  left: 18px !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  background: rgba(15, 26, 28, 0.45) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: var(--r2) !important;
+  padding: 10px 16px !important;
+  z-index: 3 !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* 3 Picture cards equal height and grid layout */
+.g3.w1 {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr;
+  align-items: stretch;
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.g3.w1 > .pc {
+  aspect-ratio: auto;
+  height: 100%;
+  min-height: 460px;
+  border-radius: var(--r);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Mobile & tablet stacking */
+@media (max-width: 900px) {
+  .g3.w1 {
+    grid-template-columns: 1fr !important;
+  }
+  .g3.w1 > .pc {
+    min-height: 380px !important;
+  }
+}
+
+/* =========================================================
+   INTERACTIVE INDIA MAP SECTION (DESKTOP & MOBILE RESPONSIVE)
+   ========================================================= */
+
+.map-split {
+  display: grid;
+  grid-template-columns: 1.05fr 1.15fr;
+  gap: clamp(16px, 2.2vw, 24px);
+  align-items: stretch;
+}
+
+.map-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  padding: clamp(24px, 3.6vw, 44px);
+}
+
+.map-top-tags {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.map-cap {
+  font: 700 13px var(--fh);
+  color: var(--teal);
+  background: #fff;
+  padding: 6px 14px;
+  border-radius: 50px;
+  box-shadow: 0 2px 10px rgba(15, 26, 28, 0.06);
+}
+
+.map-fade {
+  animation: mapFadeIn 0.35s var(--ease) both;
+}
+
+@keyframes mapFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.map-state {
+  font: 600 13px var(--fb);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--teal) !important;
+  margin-bottom: 6px;
+}
+
+.map-title {
+  font-size: clamp(24px, 2.5vw, 34px) !important;
+  line-height: 1.15 !important;
+  margin: 0 0 18px !important;
+  color: var(--ink);
+}
+
+.map-box {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--r2);
+  padding: clamp(16px, 2vw, 22px);
+}
+
+.map-lbl {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--mute);
+  margin-bottom: 4px;
+}
+
+.map-row strong {
+  display: block;
+  font-size: 15.5px;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+.map-row p {
+  font-size: 14.5px !important;
+  color: var(--ink2) !important;
+  line-height: 1.55;
+  margin: 0 !important;
+}
+
+.map-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.map-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 15px;
+  border-radius: 50px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font: 600 13.5px var(--fh);
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
+
+.map-pill:hover {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.map-pill.on {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+  box-shadow: 0 8px 20px rgba(15, 26, 28, 0.16);
+}
+
+.map-pill i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.map-pill .hq-dot {
+  background: var(--sun);
+  box-shadow: 0 0 0 3px rgba(255, 201, 40, 0.28);
+}
+
+.map-pill .city-dot {
+  background: var(--teal);
+}
+
+.map-pill.on .city-dot {
+  background: var(--sun);
+}
+
+.map-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+/* Right Side Dark 3D Map Stage */
+.map-stage {
+  position: relative;
+  border-radius: var(--r);
+  background: radial-gradient(circle at 50% 40%, #132a2e 0%, #0b1214 75%);
+  color: #fff;
+  padding: clamp(18px, 2.5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 560px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(11, 18, 20, 0.16);
+}
+
+.map-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 18px;
+  z-index: 3;
+}
+
+.map-hud small {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.map-hud b {
+  font: 700 14px var(--fh);
+  color: #fff;
+}
+
+.map-hud-sep {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.map-svg-wrap {
+  position: relative;
+  flex: 1;
+  display: grid;
+  place-items: center;
+  margin: 8px 0;
+}
+
+.map-svg {
+  width: 100%;
+  max-width: 470px;
+  height: auto;
+  max-height: 460px;
+  overflow: visible;
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.45));
+}
+
+.map-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mapPulse 2.2s infinite ease-out;
+}
+
+@keyframes mapPulse {
+  0% {
+    transform: scale(0.65);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(1.85);
+    opacity: 0;
+  }
+}
+
+.map-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.75);
+  z-index: 3;
+}
+
+.map-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.lg-hq,
+.lg-node {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.lg-hq {
+  background: var(--sun);
+  box-shadow: 0 0 8px var(--sun);
+}
+
+.lg-node {
+  background: var(--teal);
+  border: 1.5px solid #fff;
+}
+
+.map-hint {
+  color: var(--sun);
+  font-weight: 600;
+}
+
+/* Tablet & Mobile Responsive Layout */
+@media (max-width: 960px) {
+  .map-split {
+    grid-template-columns: 1fr;
+  }
+  .map-stage {
+    min-height: 460px;
+    order: -1; /* Map upar dikhega aur tap karte hi niche card update hoga */
+  }
+}
+
+@media (max-width: 560px) {
+  .map-stage {
+    min-height: 390px;
+    padding: 16px;
+  }
+  .map-hud {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+  .map-hud b {
+    font-size: 12.5px;
+  }
+  .map-pills {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+  .map-pills::-webkit-scrollbar {
+    display: none;
+  }
+  .map-pill {
+    flex: none;
+  }
+  .map-actions .cbtn {
+    width: 100%;
+  }
+  .map-actions .cbtn span {
+    flex: 1;
+  }
+}
