@@ -76,9 +76,17 @@ h1,h2,h3,h4{font-family:var(--fh);font-weight:700;letter-spacing:-.03em;line-hei
 .ticks{list-style:none;margin:22px 0 28px;display:grid;gap:12px}.ticks li{display:flex;gap:12px;align-items:flex-start;font-size:15px;font-weight:500}.ticks svg{flex:none;width:22px;height:22px;padding:4px;border-radius:50%;background:#fff;color:var(--teal);margin-top:1px}
 .chip{position:absolute;z-index:2;display:flex;align-items:center;gap:12px;padding:12px 18px}.chip b{font:700 clamp(26px,3vw,38px)/1 var(--fh);letter-spacing:-.04em}.chip small{font-size:12px;opacity:.85;line-height:1.3}
 .step{display:flex;flex-direction:column;gap:6px;min-height:230px}.step .n{font:700 14px var(--fh);color:var(--teal);background:#fff;border-radius:50px;padding:5px 12px;align-self:flex-start}.step h3{margin:auto 0 6px}
-.stats{background:var(--teal);color:#fff;border-radius:var(--r);padding:clamp(28px,4.5vw,64px);display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;overflow:hidden}
-.stats::after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,201,40,.35),transparent 65%)}
-.stats b{display:block;font:700 clamp(38px,5.2vw,72px)/1 var(--fh);letter-spacing:-.05em}.stats b em{font-style:normal;color:var(--sun)}.stats span{display:block;margin-top:10px;color:rgba(255,255,255,.78);font-size:14px;max-width:18ch}
+
+/* =========================================================
+   STATS SECTION (ENHANCED NUMBER SCALING & CLEAN BASELINE)
+   ========================================================= */
+.stats{background:var(--teal);color:#fff;border-radius:var(--r);padding:clamp(32px,4.8vw,64px);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.4vw,32px);position:relative;overflow:hidden}
+.stats::after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,201,40,.35),transparent 65%);pointer-events:none}
+.stats b{display:flex;align-items:baseline;font-family:var(--fh);font-weight:700;font-size:clamp(44px,5.2vw,72px);line-height:1;letter-spacing:-.05em;color:#fff}
+.stats b span[data-count]{display:inline;font-size:inherit;font-weight:inherit;color:inherit;line-height:1;font-variant-numeric:tabular-nums}
+.stats b em{font-style:normal;color:var(--sun);font-size:0.75em;margin-left:4px}
+.stats div>span:not([data-count]){display:block;margin-top:12px;color:rgba(255,255,255,.82);font-size:14px;line-height:1.4;max-width:20ch}
+
 .mq{overflow:hidden;white-space:nowrap;padding:34px 0;border-block:1px solid var(--line);-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .mq div{display:inline-flex;animation:mq 34s linear infinite}.mq span{font:700 clamp(22px,3vw,38px) var(--fh);letter-spacing:-.03em;color:#aab4b6;margin-right:clamp(36px,5vw,72px)}@keyframes mq{to{transform:translateX(-50%)}}
 .qb{position:relative;border-radius:var(--r);overflow:hidden;color:#fff;isolation:isolate;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);padding:clamp(26px,5vw,72px);align-items:center;background:#0b1214}
@@ -157,7 +165,7 @@ h1,h2,h3,h4{font-family:var(--fh);font-weight:700;letter-spacing:-.03em;line-hei
    WHY SS INDO SOLAR & CLEAN MOBILE RESPONSIVENESS
    ========================================================= */
 
-/* Heading: Desktop par single line rahegi, mobile par auto-wrap hogi bina screen tode */
+/* Heading: Desktop par wide center fit aur single line, mobile par auto-wrap */
 .sec-h {
   width: 100%;
   max-width: 1180px;
@@ -230,5 +238,21 @@ h1,h2,h3,h4{font-family:var(--fh);font-weight:700;letter-spacing:-.03em;line-hei
   }
   .g3.w1 > .card.tall {
     min-height: auto !important;
+  }
+  .stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 28px !important;
+  }
+}
+
+/* Screen width <= 560px: Small screen stats */
+@media (max-width: 560px) {
+  .stats {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px 16px !important;
+    padding: 28px 18px !important;
+  }
+  .stats b {
+    font-size: clamp(32px, 8.5vw, 42px) !important;
   }
 }
