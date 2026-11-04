@@ -13,10 +13,10 @@ export interface CityPin {
   address: string;
   highlight: string;
   capacity: string;
-  x: number; // Exact coordinate on 600x680 India Map
+  x: number;
   y: number;
-  labelDx: number; // Smart callout offset X so labels NEVER overlap
-  labelDy: number; // Smart callout offset Y
+  labelDx: number;
+  labelDy: number;
   anchor: 'start' | 'end' | 'middle';
   isHQ?: boolean;
 }
@@ -284,7 +284,6 @@ export default function IndiaMap() {
                 >
                   Book survey in {activeCity.city}
                 </CBtn>
-                {/* Fixed: removed invalid 'sm' prop */}
                 <CBtn href="/projects" v="ghost">
                   View projects
                 </CBtn>
