@@ -1,0 +1,17 @@
+# SS Indo Solar
+> Solar EPC company (installation and services) in Kanpur, Uttar Pradesh. UPNEDA-empanelled PM Surya Ghar vendor (approved 10-06-2025), ex-Waaree authorised franchise and F-Class customer of Waaree Energies Limited. Key operating regions: Uttar Pradesh and Delhi NCR. Head office: MIG 86, K.D.A. Colony, Jajmau, Kanpur 208010. Branches: Kaimganj, Farrukhabad, Aligarh. Phone +91 7906786485, +91 9451875234. Email ssindosolargroup@gmail.com.
+
+## Services
+- [EPC](/services/epc): client meeting, design, installation, commissioning
+- [System Design](/services/system-design): layout, blueprint and site survey (what we check, documents we need)
+- [Liasoning](/services/liasoning): net metering, net billing/feeding, gross metering approvals
+- [AMC](/services/amc): annual maintenance contract, with plant insurance support
+- [MCS](/services/mcs): module cleaning system
+- [All services](/services): grid-tied, off-grid, hybrid, solar thermal, solar pumps, C&I
+
+## Facts
+- [Projects](/projects): Darul Uloom Deoband 300 kW, Vidyagyan School Sitapur 300 kW, AKI Magarwara Unnao 50 kW, DTS Madarsa Jajmau 25 kW, Chennai off-grid school, Fatehpur 5 HP solar pump
+- [Installation process](/installation): civil foundation, structure mounting, DC/AC cabling, earthing, lightning arrestor, commissioning
+- [About](/about): company, owner Saadullah Khan (M.Tech, AMU), certifications, Indian Patent 429440 (solar PV based EV charging station), offices and branches
+- [FAQ](/faq), [Contact](/contact)
+- Full text: /llms-full.txt
