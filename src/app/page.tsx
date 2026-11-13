@@ -54,7 +54,7 @@ export default function Home() {
         </div>
         <div className="media" data-img><Image src={IMG.house} alt="Rooftop solar on a home" fill sizes="(max-width:900px) 100vw, 55vw" />
           <div className="chip glass" style={{ right: 18, bottom: 18 }}><b>300<small style={{ fontSize: 14 }}> kW</small></b><small>our largest<br />projects</small></div>
-          <div className="chip glass" style={{ left: 18, top: 18 }}><b>24x7</b><small>service<br />support</small></div></div>
+          <div className="chip glass" style={{ left: 18, top: 18 }}><b>9 - 5</b><small>office hours<br />support</small></div></div>
       </div></div></section>
 
       <section className="sec"><div className="wrap">
@@ -86,11 +86,24 @@ export default function Home() {
       <section className="sec tight"><div className="wrap"><div className="stats" data-reveal>
         <div><b><span data-count="500">0</span><em>+</em></b><span>solar systems commissioned</span></div>
         <div><b><span data-count="300">0</span><em> kW</em></b><span>our largest single projects</span></div>
-        <div><b>24<em>x</em>7</b><span>service support after commissioning</span></div>
+        <div><b>9<em>-</em>5</b><span>office hours support after commissioning</span></div>
         <div><b><span data-count="5">0</span></b><span>branch and office locations in UP</span></div>
       </div></div></section>
 
-      <div className="mq" aria-hidden="true"><div>{[...BRANDS, ...BRANDS, ...BRANDS, ...BRANDS].map((b, i) => <span key={i}>{b}</span>)}</div></div>
+      <div className="mq" aria-hidden="true">
+        <div>
+          {[...BRANDS, ...BRANDS].map((b, i) => (
+            <div key={i} className="mq-item">
+              <Image 
+                src={b.logo} 
+                alt={b.name} 
+                width={150} 
+                height={50} 
+              />
+            </div>
+          ))}
+        </div>
+      </div>
 
       <section className="sec"><div className="wrap"><div className="qb" data-reveal>
         <div className="bgm"><Image src={IMG.sunset} alt="" fill sizes="100vw" /></div>

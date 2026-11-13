@@ -107,7 +107,6 @@ export const OWNER = {
     'Co-patentee of Indian Patent 429440 for a solar PV based charging station for electric vehicles.',
   ],
 };
-// CO2 maths: 1,400 units per kW per year (typical for Uttar Pradesh), grid factor 0.727 tCO2/MWh (CEA CO2 Baseline Database v20, FY 2023-24)
 export const CO2 = { unitsPerKw: 1400, factor: 0.727 };
 
 export const SERVICES = [
@@ -117,11 +116,22 @@ export const SERVICES = [
   { title: 'Solar thermal', text: 'Waaree water heaters delivering 60 to 90 degree hot water for homes, hospitals, hostels and industry.' },
   { title: 'Solar pumps', text: 'Irrigation pumps with PM-KUSUM subsidy or direct purchase. Also atta chakki and aara machines.' },
   { title: 'Commercial & Industrial', text: 'String inverters from 25 kW to 110 kW and large plants.' },
-  { title: 'O&M', text: 'Module cleaning, monitoring and 24x7 service support.' },
+  { title: 'O&M', text: 'Module cleaning, monitoring and office hours service support.' },
 ];
 
 export const CLIENTS = ['Residential', 'Industrial and institutions', 'Temples, mosques and gurudwaras', 'Hospitals, petrol pumps and malls', 'Farmers, atta chakki and aara machines', 'Government buildings, schools and gaushalas'];
-export const BRANDS = ['Waaree', 'Vikram Solar', 'Canadian Solar', 'Jakson', 'Solis', 'Sofar Solar', 'Amrut Energy', 'Statcon Energiaa'];
+
+// Updated BRANDS array with name and local logo paths (drop your logo files into public/brands/)
+export const BRANDS = [
+  { name: 'Waaree', logo: '/brands/waaree.png' },
+  { name: 'Vikram Solar', logo: '/brands/vikram-solar.png' },
+  { name: 'Canadian Solar', logo: '/brands/canadian-solar.png' },
+  { name: 'Jakson', logo: '/brands/jakson.png' },
+  { name: 'Solis', logo: '/brands/solis.png' },
+  { name: 'Sofar Solar', logo: '/brands/sofar-solar.png' },
+  { name: 'Amrut Energy', logo: '/brands/amrut-energy.png' },
+  { name: 'Statcon Energiaa', logo: '/brands/statcon.png' },
+];
 
 export const FAQS = [
   { q: 'What does SS Indo Solar do?', a: 'SS Indo Solar is a Kanpur-based solar EPC company (installation and services). We handle the client meeting, system design, equipment, installation, commissioning, net-metering liasoning, annual maintenance and module cleaning under one contract.' },
@@ -136,7 +146,7 @@ export const FAQS = [
 
 export const KNOWLEDGE = `Business: ${SITE.name} (${SITE.tagline}), ${SITE.address}. Solar EPC company (installation and services), not a retailer or wholesaler. Owner: ${OWNER.name}. Phones ${SITE.phones.join(', ')}. Emails ${SITE.emails.join(', ')}.
 Key operating regions: ${SITE.regions}. Head office and warehouse in Kanpur; branches in Kaimganj (District Farrukhabad), Farrukhabad and Aligarh.
-UPNEDA-empanelled vendor for PM Surya Ghar residential rooftop solar in Uttar Pradesh (approved 10-06-2025). Ex-Waaree authorised franchise and F-Class customer of Waaree Energies Limited. Co-patentee of Indian Patent 429440 (solar PV based EV charging station). Brochure claims 500+ SPV systems commissioned and 24x7 support.
+UPNEDA-empanelled vendor for PM Surya Ghar residential rooftop solar in Uttar Pradesh (approved 10-06-2025). Ex-Waaree authorised franchise and F-Class customer of Waaree Energies Limited. Co-patentee of Indian Patent 429440 (solar PV based EV charging station). Brochure claims 500+ SPV systems commissioned and 9-5 support.
 Services: EPC (client meeting, design, installation, commissioning); System Design (layout/blueprint and site survey); Liasoning (net metering, net billing, net feeding, gross metering); AMC (annual maintenance contract, plant insurance support); MCS (module cleaning system). Also grid-tied, off-grid and hybrid systems, solar pumps and solar water heaters. Finance: MSME/NBFC/SIDBI/bank assistance, 80% accelerated depreciation for commercial rooftop, PM-KUSUM for farmers.
 Projects: ${PROJECTS.map(p => p.title + ' ' + p.capacity + ' ' + p.kind + ' ' + p.place).join('; ')}.
-Brands: ${BRANDS.join(', ')}. Do not quote prices; ask the visitor to share their monthly bill on WhatsApp for a quote.`;
+Brands: ${BRANDS.map(b => b.name).join(', ')}. Do not quote prices; ask the visitor to share their monthly bill on WhatsApp for a quote.`;

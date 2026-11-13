@@ -48,7 +48,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-IN" className={`${inter.variable} ${pj.variable}`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: "(function(){try{var d=document.documentElement;if(sessionStorage.getItem('ssis')==='1')d.classList.add('pl-skip');if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('intro');setTimeout(function(){d.classList.remove('intro','intro-play')},9000)}}catch(e){}})()" }} />
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<style>.pl4 { display: none !important; }</style>`,
+          }}
+        />
       </head>
       <body>
         <Interactions />

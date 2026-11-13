@@ -9,15 +9,14 @@ type W = Window & { __plDone?: boolean };
 const finish = () => { (window as W).__plDone = true; window.dispatchEvent(new Event('preloader:done')); };
 const ASSETS = HERO.map((h) => h.img);
 const [vx, , vw] = LOGO.vb.split(' ').map(Number);
-const SHIFT = ((vx + vw / 2) - (LOGO.mark[0] + LOGO.mark[2]) / 2) / vw * 100; // % of logo width to centre the mark alone
+const SHIFT = ((vx + vw / 2) - (LOGO.mark[0] + LOGO.mark[2]) / 2) / vw * 100;
 const TEXT_W = LOGO.name[2] - 222 + 6;
 
 export default function Preloader() {
   const root = useRef<HTMLDivElement>(null), pF = useRef<SVGPathElement>(null), pG = useRef<SVGPathElement>(null);
   const [done, setDone] = useState(false);
   useEffect(() => {
-    let seen = false; try { seen = sessionStorage.getItem('ssis') === '1'; } catch {}
-    if (seen || matchMedia('(prefers-reduced-motion: reduce)').matches) { setDone(true); finish(); return; }
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { setDone(true); finish(); return; }
     const html = document.documentElement; html.style.overflow = 'hidden';
     const r = root.current!, svg = r.querySelector<SVGSVGElement>('.pl4-logo')!;
     const hut = svg.querySelector('.lg-hut')!, sun = svg.querySelector('.lg-sun')!, rv = svg.querySelector('.lg-rv')!, name = svg.querySelector('.lg-name')!, tag = svg.querySelector('.lg-tag')!;
@@ -29,7 +28,7 @@ export default function Preloader() {
     ASSETS.forEach((src) => { const im = new Image(); im.onload = im.onerror = () => { loaded++; }; im.src = src; });
     const leave = () => {
       if (leaving) return; leaving = true;
-      const tl = gsap.timeline({ onComplete: () => { try { sessionStorage.setItem('ssis', '1'); } catch {} html.style.overflow = ''; setDone(true); } });
+      const tl = gsap.timeline({ onComplete: () => { html.style.overflow = ''; setDone(true); } });
       tl.to(svg, { scale: 1.06, opacity: 0, duration: 0.5, ease: 'power2.in' }, 0.15).to('.pl4-count', { opacity: 0, duration: 0.3 }, 0)
         .to(pF.current, { attr: { d: WIPE.midOut }, duration: 0.5, ease: 'power2.in' }, 0.5).to(pF.current, { attr: { d: WIPE.gone }, duration: 0.6, ease: 'power3.out' })
         .to(pG.current, { attr: { d: WIPE.midOut }, duration: 0.5, ease: 'power2.in' }, 0.62).to(pG.current, { attr: { d: WIPE.gone }, duration: 0.6, ease: 'power3.out' }).add(finish, 1.0);
