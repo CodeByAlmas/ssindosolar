@@ -16,7 +16,7 @@ const FLOW = [
   ['System design and site survey', 'We study your bill, net-metering policy, roof viability and weather data, then fix the best structure and share a 2D/3D model.'],
   ['Equipment procurement', 'Modules, inverters and BOS from Tier-I, bankable manufacturers at competitive prices with warranty.'],
   ['Installation and commissioning', 'Mounting, grid connectivity and paperwork as per State ERC regulations. One contract, one bill.'],
-  ['Operation and maintenance', 'Monitoring, mechanized module cleaning and 24x7 service support.'],
+  ['Operation and maintenance', 'Monitoring, mechanized module cleaning and office hours service support.'],
 ];
 
 export default function Services() {
@@ -37,7 +37,7 @@ export default function Services() {
       </div></div></section>
       <section className="sec tight"><div className="wrap"><div className="g2">
         <div className="card"><p className="eyebrow">Who we work for</p><ul className="chips" style={{ margin: 0 }}>{CLIENTS.map((c) => <li key={c} style={{ background: '#fff' }}>{c}</li>)}</ul></div>
-        <div className="card"><p className="eyebrow">Brands</p><ul className="chips" style={{ margin: 0 }}>{BRANDS.map((c) => <li key={c} style={{ background: '#fff' }}>{c}</li>)}</ul></div>
+        <div className="card"><p className="eyebrow">Brands</p><ul className="chips" style={{ margin: 0 }}>{BRANDS.map((b) => <li key={b.name} style={{ background: '#fff' }}>{b.name}</li>)}</ul></div>
       </div></div></section>
       <section className="sec"><div className="wrap"><div className="qb"><div className="bgm"><Image src={IMG.field} alt="" fill sizes="100vw" /></div><div><h2>Send us your electricity bill.</h2><p>We will recommend a system size and share a quote on WhatsApp.</p></div><QuoteForm /></div></div></section>
     </>
